@@ -14,22 +14,19 @@ source "amazon-ebs" "amazon-linux" {
   instance_type   = "t2.micro"
   source_ami      = "ami-06b09bfacae1453cb"
   ssh_username    = "ec2-user"
-  ami_users       = ["251878394926"]
+  #ami_users       = ["251878394926"]
+  access_key = "AKIATVJI7JQXLG4BCBGK"
+  secret_key = "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"
   ami_regions     = [
                       "us-east-1"
                     ]
 }
-variables {
-  aws_access_key = "AKIATVJI7JQXG2UPI3UI"
-  aws_secret_key = "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"
-}
+
 
 # what to install, configure and file to copy/execute
 build {
-  name = "hq-packer"
-  sources = [
-    "source.amazon-ebs.amazon-linux"
-  ]
+  
+  sources = [ "source.amazon-ebs.amazon-linux"]
 
   provisioner "file" {
   source = "provisioner.sh"
