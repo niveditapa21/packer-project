@@ -19,6 +19,10 @@ source "amazon-ebs" "amazon-linux" {
                       "us-east-1"
                     ]
 }
+variables {
+  aws_access_key = "AKIATVJI7JQXG2UPI3UI"
+  aws_secret_key = "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"
+}
 
 # what to install, configure and file to copy/execute
 build {
