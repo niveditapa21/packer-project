@@ -21,4 +21,4 @@ sudo bash install
 
 # install Docker
 sudo yum update -y
-sudo yum install -y docker.io
+sudo yum install -y docker
