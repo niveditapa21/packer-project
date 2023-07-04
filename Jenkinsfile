@@ -1,6 +1,5 @@
 pipeline {
 
-  agent { label 'packer-project' }
 
   stages {
 
