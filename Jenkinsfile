@@ -7,9 +7,8 @@ pipeline {
     stage('Source') {
       steps {
 
-        git branch: "main",
-   
-          url: 'git@github.com:nivedita21/packer-project.git'
+        sh 'git clone https://github.com/niveditapa21/packer-project.git .'
+        sh 'npm install'
       }
     }
 
