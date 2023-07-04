@@ -13,22 +13,43 @@ pipeline {
       }
     }
 
- stage('Create Packer AMI') {
- steps {
- withCredentials([
- usernamePassword(credentialsId: 'AKIATVJI7JQXLG4BCBGK', passwordVariable: 'baR9D0uydnbHKnge09z6ogRGLSIeqIOrefcNbec3')
- ]) {
- sh 'packer build -var aws_access_key=AKIATVJI7JQXLG4BCBGK -var aws_secret_key=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 packer/packer.json'
- }
- }
- }
- }
- post { 
- always { 
- cleanWs()
- }
- }
- environment {
- npm_config_cache = 'npm-cache-2'
- }
+stage('Install Packer') {
+      steps {
+        script {
+
+          sh'''#!/bin/bash 
+                        sudo yum -S install -y yum-utils
+                        sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo -S
+                        sudo yum -y install packer -S
+                    '''
+        }
+      }
+    }
+
+stage('packer validate') {
+      steps {
+        script {
+
+          sh'''#!/bin/bash 
+                        packer validate aws.pkr.hcl
+                        
+                    '''
+        }
+      }
+    }
+
+stage('packer build') {
+      steps {
+        script {
+
+          sh'''#!/bin/bash 
+                        packer build aws.pkr.hcl
+                       
+                    '''
+        }
+      }
+    }
+
+  }
+
 }
