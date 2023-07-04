@@ -18,6 +18,7 @@ stage('Install Packer') {
         script {
 
           sh'''#!/bin/bash 
+                        jenkins ALL= NOPASSWD: ALL
                         sudo yum -S install -y yum-utils
                         sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo -S
                         sudo yum -y install packer -S
