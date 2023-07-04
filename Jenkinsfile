@@ -9,7 +9,7 @@ pipeline {
 
          git branch: "main",
         
-          url: 'git@github.com:nivedita21/packer-project.git'
+          url: 'https://github.com/niveditapa21/packer-project'
       }
     }
 
