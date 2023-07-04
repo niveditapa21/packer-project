@@ -4,11 +4,12 @@ pipeline {
 
   stages {
 
-    stage('Source') {
+    stage('Checkout Source') {
       steps {
 
-        sh 'git clone https://github.com/niveditapa21/packer-project.git .'
-        sh 'npm install'
+         git branch: "main",
+        
+          url: 'git@github.com:nivedita21/packer-project.git'
       }
     }
 
