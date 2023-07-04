@@ -1,10 +1,14 @@
 pipeline {
    
-    agent any
+    agent none
     
   stages {
 
     stage('Checkout Source') {
+        agent{ 
+                 label 'packer'
+            }
+
       steps {
 
          git branch: "main",
@@ -14,6 +18,10 @@ pipeline {
     }
 
 stage('Install Packer') {
+      agent{ 
+              label 'packer'
+            }
+
       steps {
         script {
 
@@ -29,6 +37,10 @@ stage('Install Packer') {
     }
 
 stage('packer validate') {
+         agent{ 
+                label 'packer'
+            }
+
       steps {
         script {
 
@@ -41,6 +53,10 @@ stage('packer validate') {
     }
 
 stage('packer build') {
+          agt{ 
+                label 'packer'
+            }
+
       steps {
         script {
 
