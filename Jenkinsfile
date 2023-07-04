@@ -31,7 +31,9 @@ pipeline {
         script {
 
           sh'''#!/bin/bash 
-                        packer validate build_jenkins_agent_ami_packer/jenkins-agent-ubuntu-ami.json
+                        packer validate aws.pkr.hcl
+                        packer validate buildspec.yaml
+                        packer validate provisioner.sh
                     '''
         }
       }
@@ -42,7 +44,9 @@ pipeline {
         script {
 
           sh'''#!/bin/bash 
-                        packer build build_jenkins_agent_ami_packer/jenkins-agent-ubuntu-ami.json
+                        packer build aws.pkr.hcl
+                        packer build buildspec.yaml
+                        packer build provisioner.sh
                     '''
         }
       }
