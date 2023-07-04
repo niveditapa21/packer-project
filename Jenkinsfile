@@ -1,6 +1,6 @@
 pipeline {
    
-    agent none
+    agent any
     environment {
        aws_access_key = 'AKIATVJI7JQXLG4BCBGK'
        aws_secret_key = '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'
