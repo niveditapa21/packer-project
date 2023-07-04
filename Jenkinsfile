@@ -5,9 +5,10 @@ pipeline {
   stages {
 
     stage('Checkout Source') {
-        agent{ 
-                 label 'packer'
+       agent{ 
+                label 'packer'
             }
+
 
       steps {
 
@@ -18,9 +19,10 @@ pipeline {
     }
 
 stage('Install Packer') {
-      agent{ 
-              label 'packer'
+    agent{ 
+                label 'packer'
             }
+  
 
       steps {
         script {
@@ -37,9 +39,10 @@ stage('Install Packer') {
     }
 
 stage('packer validate') {
-         agent{ 
+    agent{ 
                 label 'packer'
             }
+     
 
       steps {
         script {
@@ -53,7 +56,7 @@ stage('packer validate') {
     }
 
 stage('packer build') {
-          agt{ 
+          agent{ 
                 label 'packer'
             }
 
