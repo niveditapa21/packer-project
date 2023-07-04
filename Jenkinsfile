@@ -19,9 +19,9 @@ stage('Install Packer') {
 
           sh'''#!/bin/bash 
                         
-                        pnpm yum -S install -y yum-utils
-                        pnpm yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo -S
-                        pnpm yum -y install packer -S
+                         yum  install -y yum-utils
+                         yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo 
+                         yum -y install packer 
                     '''
         }
       }
