@@ -8,7 +8,7 @@ pipeline {
       steps {
 
         git branch: "main",
-        // create keygen in the ami to git clone
+   
           url: 'git@github.com:nivedita21/packer-project.git'
       }
     }
@@ -18,9 +18,9 @@ pipeline {
         script {
 
           sh'''#!/bin/bash 
-                        curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-                        sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-                        sudo apt-get update && sudo apt-get install packer
+                        sudo yum install -y yum-utils
+                        sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+                        sudo yum -y install packer
                     '''
         }
       }
@@ -32,8 +32,7 @@ pipeline {
 
           sh'''#!/bin/bash 
                         packer validate aws.pkr.hcl
-                        packer validate buildspec.yaml
-                        packer validate provisioner.sh
+                        
                     '''
         }
       }
@@ -45,8 +44,7 @@ pipeline {
 
           sh'''#!/bin/bash 
                         packer build aws.pkr.hcl
-                        packer build buildspec.yaml
-                        packer build provisioner.sh
+                       
                     '''
         }
       }
