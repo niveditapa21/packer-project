@@ -19,9 +19,9 @@ stage('Install Packer') {
 
           sh'''#!/bin/bash 
                         
-                         yum  install -y yum-utils
-                         yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo 
-                         yum -y install packer 
+                         curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+                         sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo 
+                         sudo yum -y install packer 
                     '''
         }
       }
