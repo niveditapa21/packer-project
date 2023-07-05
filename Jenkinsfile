@@ -1,16 +1,9 @@
 pipeline {
-   
-    agent none
-    
-  stages {
+   agent{  label 'node1' }
+   stages {
 
     stage('Checkout Source') {
-       agent{ 
-                label 'node1'
-            }
-
-
-      steps {
+       steps {
 
          git branch: "main",
         
@@ -19,12 +12,8 @@ pipeline {
     }
 
 stage('Install Packer') {
-    agent{ 
-                label 'node1'
-            }
-  
-
-      steps {
+    
+  steps {
         script {
 
           sh'''#!/bin/bash 
@@ -39,12 +28,7 @@ stage('Install Packer') {
     }
 
 stage('packer validate') {
-    agent{ 
-                label 'node1'
-            }
-     
-
-      steps {
+    steps {
         script {
 
           sh'''#!/bin/bash 
@@ -56,12 +40,8 @@ stage('packer validate') {
     }
 
 stage('packer build') {
-          agent{ 
-                label 'node1'
-            }
-
-      steps {
-        script {
+   steps {
+      script {
 
           sh'''#!/bin/bash 
                         packer build aws.pkr.hcl
