@@ -6,7 +6,7 @@ pipeline {
 
     stage('Checkout Source') {
        agent{ 
-                label 'packer'
+                label 'node1'
             }
 
 
@@ -20,7 +20,7 @@ pipeline {
 
 stage('Install Packer') {
     agent{ 
-                label 'packer'
+                label 'node1'
             }
   
 
@@ -40,7 +40,7 @@ stage('Install Packer') {
 
 stage('packer validate') {
     agent{ 
-                label 'packer'
+                label 'node1'
             }
      
 
@@ -57,7 +57,7 @@ stage('packer validate') {
 
 stage('packer build') {
           agent{ 
-                label 'packer'
+                label 'node1'
             }
 
       steps {
