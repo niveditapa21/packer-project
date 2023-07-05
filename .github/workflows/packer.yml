@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Packer build
-        uses: nivedita21/packer-project_aws@v0.2.10
+        uses: ExitoLab/packer_build_action_aws@v0.2.10
         with:
           templateFile: 'aws.pkr.hcl'
           workingDir: '.github/workflows'
