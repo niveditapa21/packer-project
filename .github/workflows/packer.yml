@@ -10,10 +10,12 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Packer build
+        uses: niveditapa21/packer-project@v0.2.10
         
         with:
           templateFile: 'aws.pkr.hcl'
           workingDir: '.github/workflows'
+          
          
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
