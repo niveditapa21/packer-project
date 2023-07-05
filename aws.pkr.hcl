@@ -1,4 +1,11 @@
-
+packer {
+  required_plugins {
+    amazon = {
+      version = ">= 0.0.2"
+      source  = "github.com/hashicorp/amazon"
+    }
+  }
+}
 source "amazon-ebs" "amazon-linux" {
   region          = "us-east-1"
   ami_name        = "ami-version-1.0.1-{{timestamp}}"
