@@ -11,8 +11,6 @@ source "amazon-ebs" "amazon-linux" {
   ami_name        = "ami-version-1.0.1-{{timestamp}}"
   instance_type   = "t2.micro"
   source_ami      = "ami-06b09bfacae1453cb"
-  aws_access_key  = "AKIATVJI7JQXEQ4YCQEE"
-  aws_secret_key  = "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"
   ssh_username    = "ec2-user"
   ami_users       = ["251878394926"]
   ami_regions     = [
