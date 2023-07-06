@@ -25,7 +25,7 @@ stage('packer validate') {
         script {
 
           sh'''#!/bin/bash 
-                        sh 'sudo packer validate aws.pkr.hcl'
+                       packer validate aws.pkr.hcl
                         
                     '''
         }
@@ -40,7 +40,7 @@ stage('packer build') {
       script {
 
           sh'''#!/bin/bash 
-                        sh 'sudo packer build aws.pkr.hcl'
+                         packer build aws.pkr.hcl
                        
                     '''
         }
