@@ -4,6 +4,8 @@ source "amazon-ebs" "amazon-linux" {
   ami_name        = "ami-version-1.0.1-{{timestamp}}"
   instance_type   = "t2.micro"
   source_ami      = "ami-06b09bfacae1453cb"
+  aws_access_key  = "AKIATVJI7JQXK4YESPAI"
+  aws_secret_key  = "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"
   ssh_username    = "ec2-user"
   ami_users       = ["251878394926"]
   ami_regions     = [
