@@ -3,6 +3,9 @@ pipeline {
    stages {
 
     stage('github') {
+       agent{
+          label 'master'
+       }
        steps {
 
          git branch: "main",
@@ -15,6 +18,9 @@ pipeline {
 
 
 stage('packer validate') {
+   agent{
+          label 'master'
+       }
     steps {
         script {
 
@@ -27,6 +33,9 @@ stage('packer validate') {
     }
 
 stage('packer build') {
+   agent{
+          label 'master'
+       }
    steps {
       script {
 
