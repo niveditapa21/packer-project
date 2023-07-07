@@ -1,11 +1,11 @@
 
 source "amazon-ebs" "amazon-linux" {
   region          = "us-east-1"
-  ami_name        = "ami-version-1.0.1-{{timestamp}}"
+  ami_name        = "NIVEDITA_AMI-{{timestamp}}"
   instance_type   = "t2.micro"
   source_ami      = "ami-06b09bfacae1453cb"
-  access_key  = "AKIATVJI7JQXK4YESPAI"
-  secret_key  = "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"
+  access_key  = "AKIATVJI7JQXNCG56QGW"
+  secret_key  = "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"
   ssh_username    = "ec2-user"
   ami_users       = ["251878394926"]
   ami_regions     = [
