@@ -7,9 +7,9 @@ source "amazon-ebs" "amazon-linux" {
   access_key  = "AKIATVJI7JQXNCG56QGW"
   secret_key  = "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"
   ssh_username    = "ec2-user"
-  ssh_agent_auth  =  "false",
-  associate_public_ip_address = "true",
-  ssh_interface = "public_ip",
+  ssh_agent_auth  =  "false"
+  associate_public_ip_address = "true"
+  ssh_interface = "public_ip"
   temporary_key_pair_type = "ed25519"
   ami_users       = ["251878394926"]
   ami_regions     = [
