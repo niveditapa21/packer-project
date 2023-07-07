@@ -1,51 +1,44 @@
-{
-    "builders":[
-        {
 
-        "type": "amazon-ebs",
-        "access_key":"AKIATVJI7JQXNCG56QGW",
-        "secret_key":"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",
-        "region": "us-east-1"
-        "ami_name": "NIVEDITA_AMI-{{timestamp}}",
-        "source_ami": "ami-06b09bfacae1453cb",
-        "instance_type": "t2.micro",
-        "ssh_username":"ec2-user",
-        "ssh_agent_auth": "false",
-         "associate_public_ip_address": "true",
-         "ssh_interface": "public_ip",
-         "temporary_key_pair_type": "224key"
-
-        }
-        
+source "amazon-ebs" "amazon-linux" {
+  region          = "us-east-1"
+  ami_name        = "NIVEDITA_AMI-{{timestamp}}"
+  instance_type   = "t2.micro"
+  source_ami      = "ami-06b09bfacae1453cb"
+  access_key  = "AKIATVJI7JQXNCG56QGW"
+  secret_key  = "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"
+  ssh_username    = "ec2-user"
+  ssh_agent_auth  =  "false"
+  associate_public_ip_address = "true"
+  ssh_interface = "public_ip"
+  #ami_users       = ["251878394926"]
+  ami_regions     = [
+                      "us-east-1"
+                    ]
+}
 
 
 
+build {
+  
+ 
+  provisioner "file" {
+  source = "provisioner.sh"
+  destination = "/tmp/provisioner.sh"
+}
 
-
-    ],
-    
-    "provisioners": [
-        {
-          
-            "type": "file",
-            "source": "installer.sh",
-            "destination": "/tmp/provisioner.sh"
-        },
-        
-        
-          {"type": "shell",
-            "inline": [
-                "chmod a+x /tmp/provisioner.sh",
-                "ls -la /tmp",
-                "pwd",
-                "/tmp/provisioner.sh"]
-
-
-           }
-        
-    ]
-      
-
-
-    
+  provisioner "shell" {
+    inline = ["chmod a+x /tmp/provisioner.sh"]
+  }
+  
+  provisioner "shell" {
+    inline = [ "ls -la /tmp"]
+  }
+  
+    provisioner "shell" {
+    inline = [ "pwd"]
+  }
+  
+  provisioner "shell" {
+    inline = ["/tmp/provisioner.sh"]
+  }
 }
