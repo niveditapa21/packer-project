@@ -1,8 +1,5 @@
 pipeline{
     agent any
-      tools {
-        packer 'Packer' 
-        }
     stages{
         stage("code pull from repo"){
             steps{
