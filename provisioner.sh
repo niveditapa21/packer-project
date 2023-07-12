@@ -17,7 +17,7 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a 
 
 
 curl -O https://inspector-agent.amazonaws.com/linux/latest/install
-sudo bash install
+sudo sh install
 
 
 sudo yum update -y
