@@ -21,7 +21,7 @@ pipeline{
 
         stage ('Packer validate') {
                    steps {
-                    echo 'validating packer code'
+                    echo 'validating aws.pkr.hcl'
                     sh '/usr/bin/packer validate aws.pkr.hcl'
                 }
         }
