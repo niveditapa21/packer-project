@@ -45,9 +45,7 @@ build {
   }
 
 
-  provisioner "shell" {
-    inline = ["pwd"]
-  }
+ 
 
   provisioner "shell" {
     inline = ["/tmp/provisioner.sh"]
