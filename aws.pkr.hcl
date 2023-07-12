@@ -17,7 +17,7 @@ source "amazon-ebs" "amazon-linux" {
   ssh_agent_auth  =  "false"
   associate_public_ip_address = "true"
   ssh_interface = "public_ip"
-  ami_users       = [""]
+  #ami_users       = [""]
   ami_regions     = [
                       "us-east-1"
                     ]
