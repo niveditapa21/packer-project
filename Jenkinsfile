@@ -31,7 +31,7 @@ pipeline{
 
          stage ('packer build ami') {
                     steps {
-                        withCredentials([object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding]) {
+                        withCredentials([com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding]) {
                     echo 'building ami'
                     sh '/usr/bin/packer build aws.pkr.hcl'
                 }
