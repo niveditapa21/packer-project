@@ -44,10 +44,12 @@ build {
     inline = ["ls -la /tmp"]
   }
 
-
+  provisioner "shell" {
+    inline = ["pwd"]
+  }
  
 
   provisioner "shell" {
-    inline = ["/tmp/provisioner.sh"]
+    script = "/tmp/provisioner.sh"
   }
 }
