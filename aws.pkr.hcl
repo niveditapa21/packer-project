@@ -1,11 +1,12 @@
 packer {
   required_plugins {
     amazon = {
-      version = ">= 1.2.6"
+      version = ">= 0.0.2"
       source  = "github.com/hashicorp/amazon"
     }
   }
-} 
+}
+
 source "amazon-ebs" "amazon-linux" {
   region          = "us-east-1"
   ami_name        = "LINUX_NIVEDITA_AMI-{{timestamp}}"
@@ -32,23 +33,22 @@ build {
   ]
 
   provisioner "file" {
-    source      = "provisioner.sh"
-    destination = "/tmp/provisioner.sh"
-  }
+  source = "provisioner.sh"
+  destination = "/tmp/provisioner.sh"
+}
 
   provisioner "shell" {
     inline = ["chmod a+x /tmp/provisioner.sh"]
   }
-
+  
   provisioner "shell" {
-    inline = ["ls -la /tmp"]
+    inline = [ "ls -la /tmp"]
   }
-
-
-  provisioner "shell" {
-    inline = ["pwd"]
+  
+    provisioner "shell" {
+    inline = [ "pwd"]
   }
-
+  
   provisioner "shell" {
     inline = ["/tmp/provisioner.sh"]
   }
