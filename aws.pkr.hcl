@@ -25,26 +25,31 @@ source "amazon-ebs" "amazon-linux" {
 }
 
 
-
 build {
-  
-  sources = "provisioner.sh"
-  destination = "/tmp/provisioner.sh"
-}
+  name = "aws-packer"
+  sources = [
+    "source.amazon-ebs.amazon-linux"
+  ]
+
+  provisioner "file" {
+    source      = "provisioner.sh"
+    destination = "/tmp/provisioner.sh"
+  }
 
   provisioner "shell" {
     inline = ["chmod a+x /tmp/provisioner.sh"]
   }
-  
+
   provisioner "shell" {
-    inline = [ "ls -la /tmp"]
+    inline = ["ls -la /tmp"]
   }
-  
-    provisioner "shell" {
-    inline = [ "pwd"]
+
+
+  provisioner "shell" {
+    inline = ["pwd"]
   }
-  
+
   provisioner "shell" {
     inline = ["/tmp/provisioner.sh"]
   }
-
+}
