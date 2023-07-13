@@ -22,7 +22,7 @@ pipeline{
         stage ('Packer validate') {
                    steps {
                     echo 'validating aws.pkr.hcl'
-                    sh '/usr/bin/packer validate .github/aws.pkr.hcl'
+                    sh '/usr/bin/packer validate https://github.com/niveditapa21/packer-project/blob/main/aws.pkr.hcl'
                 }
         }
 
