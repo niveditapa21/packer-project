@@ -15,7 +15,7 @@ pipeline{
                     echo "initializing packer"
                     sh "/usr/bin/packer version"
                     sh  "/usr/bin/packer init aws.pkr.hcl"
-                      }  
+                     }  
                 }
         }
 
