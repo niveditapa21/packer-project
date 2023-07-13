@@ -36,20 +36,24 @@ build {
     destination = "/tmp/provisioner.sh"
   }
 
-  provisioner "shell" {
+  provisioner  {
+    type   = "shell"
     inline = ["chmod a+x /tmp/provisioner.sh"]
   }
 
-  provisioner "shell" {
+  provisioner  {
+    type   = "shell"
     inline = ["ls -la /tmp"]
   }
 
-  provisioner "shell" {
+  provisioner  {
+    type   = "shell"
     inline = ["pwd"]
   }
  
 
-  provisioner "shell" {
+  provisioner {
+    type   = "shell" 
     script = "/tmp/provisioner.sh"
   }
 }
