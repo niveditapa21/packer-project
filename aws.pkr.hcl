@@ -26,7 +26,7 @@ source "amazon-ebs" "amazon-linux" {
 
 
 build {
-  name = "aws-packer"
+  name = "hq-packer"
   sources = [
     "source.amazon-ebs.amazon-linux"
   ]
