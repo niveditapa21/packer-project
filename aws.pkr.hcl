@@ -31,7 +31,8 @@ build {
     "source.amazon-ebs.amazon-linux"
   ]
 
-  provisioner "file" {
+  provisioner  {
+    type        = "file"
     source      = "provisioner.sh"
     destination = "/tmp/provisioner.sh"
   }
