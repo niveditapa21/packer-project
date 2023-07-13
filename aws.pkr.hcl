@@ -27,7 +27,7 @@ source "amazon-ebs" "amazon-linux" {
 
 build {
   sources = [ "source.amazon-ebs.amazon-linux"]
-}
+
 
   provisioner "file" {
     source      = "provisioner.sh"
@@ -50,4 +50,5 @@ build {
   provisioner "shell" {
     inline = ["/tmp/provisioner.sh"]
   }
+}
 
