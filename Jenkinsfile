@@ -21,8 +21,8 @@ pipeline{
 
         stage ('Packer validate') {
                    steps {
-                    echo 'validating aws.pkr.hcl'
-                    sh '/usr/bin/packer validate https://github.com/niveditapa21/packer-project/blob/main/aws.pkr.hcl'
+                    echo "validating aws.pkr.hcl"
+                    sh "/usr/bin/packer validate aws.pkr.hcl"
                 }
         }
 
@@ -34,8 +34,8 @@ pipeline{
                         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                                  ]]) {
-                    echo 'building ami'
-                    sh '/usr/bin/packer build aws.pkr.hcl'
+                    echo "building ami"
+                    sh "/usr/bin/packer build aws.pkr.hcl"
                 }
                     
             }
