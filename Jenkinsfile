@@ -28,7 +28,12 @@ pipeline{
 
          stage ('packer build ami') {
                     steps {
-                        withCredentials([com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding]) {
+                       withCredentials([[
+                        $class: 'AmazonWebServicesCredentialsBinding',
+                        credentialsId: 'b7112dc4-86f9-40e9-87dd-acbac7929e84',
+                        accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+                                 ]]) {
                     echo 'building ami'
                     sh '/usr/bin/packer build aws.pkr.hcl'
                 }
