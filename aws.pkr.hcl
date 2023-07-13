@@ -27,12 +27,8 @@ source "amazon-ebs" "amazon-linux" {
 
 
 build {
-  name = "hq-packer"
-  sources = "source.amazon-ebs.amazon-linux"
   
-
-  provisioner "file" {
-  source = "provisioner.sh"
+  sources = "provisioner.sh"
   destination = "/tmp/provisioner.sh"
 }
 
