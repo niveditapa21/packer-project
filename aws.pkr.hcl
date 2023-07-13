@@ -28,7 +28,7 @@ source "amazon-ebs" "amazon-linux" {
 build {
   name = "aws-packer"
   sources = [
-    "source.amazon-ebs.amazon-linux"
+    "provisioner.sh"
   ]
 
   provisioner "file" {
