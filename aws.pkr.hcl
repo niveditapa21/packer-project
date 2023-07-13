@@ -31,30 +31,25 @@ build {
     "source.amazon-ebs.amazon-linux"
   ]
 
-  provisioner  {
-    type        = "file"
+  provisioner "file" {
     source      = "provisioner.sh"
     destination = "/tmp/provisioner.sh"
   }
 
-  provisioner  {
-    type   = "shell"
+  provisioner "shell" {
     inline = ["chmod a+x /tmp/provisioner.sh"]
   }
 
-  provisioner  {
-    type   = "shell"
+  provisioner "shell" {
     inline = ["ls -la /tmp"]
   }
 
-  provisioner  {
-    type   = "shell"
+
+  provisioner "shell" {
     inline = ["pwd"]
   }
- 
 
-  provisioner {
-    type   = "shell" 
-    script = "/tmp/provisioner.sh"
+  provisioner "shell" {
+    inline = ["/tmp/provisioner.sh"]
   }
 }
