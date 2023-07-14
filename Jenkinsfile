@@ -11,7 +11,8 @@ pipeline{
 
         stage ('Packer install') {
                   steps {
-                   script {
+                       withCredentials([usernamePassword(credentialsId: '6568502e-79f4-4cf5-aab2-481ca71fe4b9', passwordVariable: 'myb@21aug1990', usernameVariable: 'nive')]) 
+                      {
                     echo "installing packer"
                     bash "/home/nive/packer-project/buildspec.sh"
                      }  
