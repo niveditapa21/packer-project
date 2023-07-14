@@ -24,15 +24,15 @@ build {
 
   provisioner "file" {
     source      = "provisioner.sh"
-    destination = "/packer-project/main/provisioner.sh"
+    destination = "/home/nive/packer-project/provisioner.sh"
   }
 
   provisioner "shell" {
-    inline = ["chmod a+x /packer-project/main/provisioner.sh"]
+    inline = ["chmod a+x /home/nive/packer-project/provisioner.sh"]
   }
 
   provisioner "shell" {
-    inline = ["ls -la /packer-project/main"]
+    inline = ["ls -la /home/nive/packer-project/provisioner.sh"]
   }
 
 
@@ -41,7 +41,7 @@ build {
   }
 
   provisioner "shell" {
-    inline = ["/packer-project/main/provisioner.sh"]
+    inline = ["/home/nive/packer-project/provisioner.sh"]
   }
 }
 
