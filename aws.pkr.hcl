@@ -19,20 +19,22 @@ source "amazon-ebs" "amazon-linux" {
 
 
 build {
-  sources = [ "source.amazon-ebs.amazon-linux"]
-
+  name = "aws-packer"
+  sources = [
+    "source.amazon-ebs.amazon-linux"
+  ]
 
   provisioner "file" {
     source      = "provisioner.sh"
-    destination = "/home/nive/packer-project/provisioner.sh"
+    destination = "/tmp/provisioner.sh"
   }
 
   provisioner "shell" {
-    inline = ["chmod a+x /home/nive/packer-project/provisioner.sh"]
+    inline = ["chmod a+x /tmp/provisioner.sh"]
   }
 
   provisioner "shell" {
-    inline = ["ls -la /home/nive/packer-project/provisioner.sh"]
+    inline = ["ls -la /tmp"]
   }
 
 
@@ -41,7 +43,7 @@ build {
   }
 
   provisioner "shell" {
-    inline = ["/home/nive/packer-project/provisioner.sh"]
+    inline = ["/tmp/provisioner.sh"]
   }
 }
 
