@@ -9,6 +9,15 @@ pipeline{
             }
         }
 
+        stage ('Packer install') {
+                  steps {
+                   script {
+                    echo "installing packer"
+                    bash "/home/nive/packer-project/buildspec.sh"
+                     }  
+                }
+        }
+
          stage ('Packer init') {
                   steps {
                    script {
