@@ -5,8 +5,6 @@ source "amazon-ebs" "amazon-linux" {
   ami_name        = "LINUX_NIVEDITA_AMI-{{timestamp}}"
   instance_type   = "t2.micro"
   source_ami      = "ami-06b09bfacae1453cb"
-  #access_key  = ""
-  #secret_key  = ""
   ssh_username    = "ec2-user"
   ssh_agent_auth  =  "false"
   associate_public_ip_address = "true"
